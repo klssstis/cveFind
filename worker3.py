@@ -15,12 +15,12 @@ import sys
 import time
 
 
-os.system('sudo apt-get update')
-os.system('sudo apt-get install -y python3 python3-pip nano git cmake pkg-config')
-os.system('sudo apt-get install -y --no-install-recommends ruby-dev libssl-dev libicu-dev zlib1g-dev libcurl4-openssl-dev')
+os.system('apt-get update')
+os.system('apt-get install -y python3 python3-pip nano git cmake pkg-config')
+os.system('apt-get install -y --no-install-recommends ruby-dev libssl-dev libicu-dev zlib1g-dev libcurl4-openssl-dev')
 
-os.system('sudo pip3 install ghlinguist')
-os.system('sudo gem install github-linguist')
+os.system('pip3 install ghlinguist')
+os.system('gem install github-linguist')
 
 from glob import glob
 import json
