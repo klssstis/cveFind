@@ -42,7 +42,7 @@ send_text = 'https://api.telegram.org/bot' + bot_token + '/getUpdates'
 response = requests.get(send_text)
 
 for i in response.json()['result']:
-    if i['message']['chat']['id'] in chats:
+    if str(i['message']['chat']['id']) in chats:
         continue
     chats.append(str(i['message']['chat']['id']))
 
