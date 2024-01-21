@@ -68,6 +68,21 @@ for r, d, f in os.walk(gitCvelist):
     if file.endswith('.json'):
       fileListHash.append(os.path.join(r, file))
 
+listWeek = []
+listNew = []
+
+for i in fileListHash:
+#    print(i)
+    motime = datetime.datetime.fromtimestamp(os.stat(i).st_mtime)
+#    print(motime)
+#    print(datetime.datetime.now()-motime)
+    countDays = (datetime.datetime.now()-motime).days
+    if  countDays > 7:
+        continue
+    elif countDays < 1:
+        listNew.append(i)
+    else:
+        listWeek.append(i)
 
 #main module
 telegram_bot_sendtext('daily update CVE '+str(len(listNew)),bot_token,chats)
