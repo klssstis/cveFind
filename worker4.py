@@ -27,6 +27,8 @@ import json
 import os
 import ghlinguist as ghl
 
+import datetime
+
 try:
     bot_token = sys.argv[1]
     chats = []
@@ -67,6 +69,7 @@ for r, d, f in os.walk(gitCvelist):
   for file in f:
     if file.endswith('.json'):
       fileListHash.append(os.path.join(r, file))
+
 
 listWeek = []
 listNew = []
