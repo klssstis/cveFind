@@ -1,0 +1,19 @@
+name: start worker1, week statistic
+#on: push
+on:
+  schedule:
+    - cron:  '0 1 * * SUN'   
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        ref: ${{ github.head_ref }}
+    - name: install depends
+      run: |
+          sudo apt-get update
+          sudo apt-get install -y git python3 sudo python3-pip
+    - name: runs
+      run: |
+          python3 worker1.py ${{ secrets.BOT_TK }} ${{ secrets.CHAT_ID }}
