@@ -27,6 +27,8 @@ import json
 import os
 import ghlinguist as ghl
 
+import datetime
+
 try:
     bot_token = sys.argv[1]
     chats = []
