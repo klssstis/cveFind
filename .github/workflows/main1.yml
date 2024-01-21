@@ -1,8 +1,8 @@
 name: start worker1, week statistic
-#on: push
-on:
-  schedule:
-    - cron:  '0 1 * * SUN'   
+on: push
+#on:
+#  schedule:
+#    - cron:  '0 1 * * SUN'   
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -16,4 +16,4 @@ jobs:
           sudo apt-get install -y git python3 sudo python3-pip
     - name: runs
       run: |
-          python3 worker1.py ${{ secrets.BOT_TK }} ${{ secrets.CHAT_ID }}
+          sudo python3 worker1.py ${{ secrets.BOT_TK }} ${{ secrets.CHAT_ID }}
