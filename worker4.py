@@ -119,7 +119,7 @@ for filename in listNew:
                         for ln in langs:
                             if float(ln[1])>30:
                                 langStr +=ln[0]+' '
-                        strStat += langStr+','+d['CVE_data_meta']['ID']+','+gitUrl
+                        strStat += langStr+', '+'https://nvd.nist.gov/vuln/detail/'+d['CVE_data_meta']['ID']+', '+gitUrl.split('/')[-2]+'/'+gitUrl.split('/')[-2]
                         strStat += '\n'
                     elif i['url'].startswith('https://gitlab.com/'):
                         checkVal = len(i['url'].split('/'))
@@ -144,7 +144,7 @@ for filename in listNew:
                         for ln in langs:
                             if float(ln[1])>30:
                                 langStr +=ln[0]+' '
-                        strStat += langStr+','+d['CVE_data_meta']['ID']+','+gitUrl
+                        strStat += langStr+', '+'https://nvd.nist.gov/vuln/detail/'+d['CVE_data_meta']['ID']+', '+gitUrl.split('/')[-2]+'/'+gitUrl.split('/')[-2]
                         strStat += '\n'
                     elif i['url'].startswith('https://git.'):
                         checkVal = len(i['url'].split('/'))
@@ -174,7 +174,7 @@ for filename in listNew:
                         for ln in langs:
                             if float(ln[1])>30:
                                 langStr +=ln[0]+' '
-                        strStat += langStr+','+d['CVE_data_meta']['ID']+','+gitUrl
+                        strStat += langStr+', '+'https://nvd.nist.gov/vuln/detail/'+d['CVE_data_meta']['ID']+','+gitUrl
                         strStat += '\n'
 
     except:
