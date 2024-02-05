@@ -174,7 +174,7 @@ for filename in listNew:
                         for ln in langs:
                             if float(ln[1])>30:
                                 langStr +=ln[0]+' '
-                        strStat += langStr+', '+'https://nvd.nist.gov/vuln/detail/'+d['CVE_data_meta']['ID']+','+gitUrl
+                        strStat += langStr+', '+'https://nvd.nist.gov/vuln/detail/'+d['CVE_data_meta']['ID']+', '+gitUrl
                         strStat += '\n'
 
     except:
