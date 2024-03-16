@@ -94,7 +94,7 @@ for filename in listNew:
         with open(filename) as f:
             d = json.load(f)
             if 'references' in d['containers']['cna'].keys():
-                for i in ['containers']['cna']['references']:
+                for i in d['containers']['cna']['references']:
                     gitUrl = ''
                     if i['url'].startswith('https://github.com/'):
                         checkVal = len(i['url'].split('/'))
