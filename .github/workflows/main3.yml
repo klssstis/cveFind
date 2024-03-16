@@ -1,8 +1,8 @@
 name: start worker3, EPSS statistic
-on: push
-#on:
-#  schedule:
-#    - cron:  '0 16 * * *'   
+#on: push
+on:
+  schedule:
+    - cron:  '0 16 * * *'   
 jobs:
   build:
     runs-on: ubuntu-22.04
