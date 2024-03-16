@@ -1,8 +1,8 @@
 name: start worker1, cve lang statistic
-#on: push
-on:
-  schedule:
-    - cron:  '0 17 * * *'   
+on: push
+#on:
+#  schedule:
+#    - cron:  '0 17 * * *'   
 jobs:
   build:
     runs-on: ubuntu-22.04
