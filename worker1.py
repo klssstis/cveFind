@@ -60,10 +60,10 @@ def sendImage(bot_image,bot_token,listUsers):
 gitCvelist = '/tmp/cvelist/'
 if os.path.exists(gitCvelist):
     os.system('rm -rf '+gitCvelist)
-os.system('git clone https://github.com/CVEProject/cvelist.git '+gitCvelist)
+os.system('git clone https://github.com/CVEProject/cvelistV5.git '+gitCvelist)
 os.system('cd '+gitCvelist+'&&git restore-mtime')
 fileListHash = []
-for r, d, f in os.walk(gitCvelist):
+for r, d, f in os.walk(gitCvelist+'cves/'):
   for file in f:
     if file.endswith('.json'):
       fileListHash.append(os.path.join(r, file))
