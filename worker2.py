@@ -96,7 +96,7 @@ for i in listNew:
             print('except')
             print(i)
             continue
-    if 'description' in dictJsonTmp and 'description_data' in dictJsonTmp['description'] and 'value' in dictJsonTmp['description']['description_data'][0]:
-        if '** RESERVED ** This candidate has been reserved' in dictJsonTmp['description']['description_data'][0]['value']:
+    if 'containers' in dictJsonTmp and 'descriptions' in dictJsonTmp['containers'] and 'value' in dictJsonTmp['containers']['descriptions'][0]:
+        if '** RESERVED ** This candidate has been reserved' in dictJsonTmp['containers']['descriptions'][0]['value']:
             continue
-        telegram_bot_sendtext('https://nvd.nist.gov/vuln/detail/'+i.split('/')[-1].split('.json')[0]+'\n\n'+dictJsonTmp['description']['description_data'][0]['value'],bot_token,chats)
+        telegram_bot_sendtext('https://nvd.nist.gov/vuln/detail/'+i.split('/')[-1].split('.json')[0]+'\n\n'+dictJsonTmp['containers']['descriptions'][0]['value'],bot_token,chats)
