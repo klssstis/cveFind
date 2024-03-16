@@ -60,10 +60,10 @@ def sendImage(bot_image,bot_token,listUsers):
 gitCvelist = '/tmp/cvelist/'
 if os.path.exists(gitCvelist):
     os.system('rm -rf '+gitCvelist)
-os.system('git clone https://github.com/CVEProject/cvelist.git '+gitCvelist)
+os.system('git clone https://github.com/CVEProject/cvelistV5.git '+gitCvelist)
 os.system('cd '+gitCvelist+'&&git restore-mtime')
 fileListHash = []
-for r, d, f in os.walk(gitCvelist):
+for r, d, f in os.walk(gitCvelist+'cves/'):
   for file in f:
     if file.endswith('.json'):
       fileListHash.append(os.path.join(r, file))
@@ -97,5 +97,5 @@ for i in fileListHash:
         except:
             print(i)
             continue
-        if 'description' in dictJsonTmp and 'description_data' in dictJsonTmp['description'] and 'value' in dictJsonTmp['description']['description_data'][0]:
-            telegram_bot_sendtext('https://nvd.nist.gov/vuln/detail/'+i.split('/')[-1].split('.json')[0]+'\n\n'+dictJsonTmp['description']['description_data'][0]['value'],bot_token,chats)
+        if 'containers' in dictJsonTmp and 'cna' in dictJsonTmp['containers'] and 'descriptions' in dictJsonTmp['containers']['cna'] and 'value' in dictJsonTmp['containers']['cna']['descriptions'][0]:
+            telegram_bot_sendtext('https://nvd.nist.gov/vuln/detail/'+i.split('/')[-1].split('.json')[0]+'\n\n'+dictJsonTmp['containers']['cna']['descriptions'][0]['value'],bot_token,chats)
