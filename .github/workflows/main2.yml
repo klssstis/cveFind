@@ -1,8 +1,8 @@
 name: start worker2, new cve daily
-#on: push
-on:
-  schedule:
-    - cron:  '0 10 * * *'   
+on: push
+#on:
+#  schedule:
+#    - cron:  '0 10 * * *'   
 jobs:
   build:
     runs-on: ubuntu-22.04
