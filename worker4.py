@@ -101,7 +101,7 @@ for filename in listNew:
                     if i['url'].startswith('https://github.com/'):
                         checkVal = len(i['url'].split('/'))
                         if checkVal<5:
-                            print('not set repo '+','+d['CVE_data_meta']['ID']+','+i['url'])
+                            print('not set repo '+','+d['cveMetadata']['cveId']+','+i['url'])
                             print('\n')
                             continue
                         elif checkVal == 5:
@@ -113,7 +113,7 @@ for filename in listNew:
                         os.system('rm -rf /tmp/123_1')
                         os.system('git clone '+gitUrl+' /tmp/123_1')
                         if not os.path.exists('/tmp/123_1'):
-                            print('null repo '+','+d['CVE_data_meta']['ID']+','+gitUrl)
+                            print('null repo '+','+d['cveMetadata']['cveId']+','+gitUrl)
                             print('\n')
                             continue
                         langs = ghl.linguist('/tmp/123_1')
@@ -121,12 +121,12 @@ for filename in listNew:
                         for ln in langs:
                             if float(ln[1])>30:
                                 langStr +=ln[0]+' '
-                        strStat += langStr+', '+'https://nvd.nist.gov/vuln/detail/'+d['CVE_data_meta']['ID']+', '+gitUrl.split('/')[-2]+'/'+gitUrl.split('/')[-2]
+                        strStat += langStr+', '+'https://nvd.nist.gov/vuln/detail/'+d['cveMetadata']['cveId']+', '+gitUrl.split('/')[-2]+'/'+gitUrl.split('/')[-2]
                         strStat += '\n'
                     elif i['url'].startswith('https://gitlab.com/'):
                         checkVal = len(i['url'].split('/'))
                         if checkVal<5:
-                            print('not set repo '+','+d['CVE_data_meta']['ID']+','+i['url'])
+                            print('not set repo '+','+d['cveMetadata']['cveId']+','+i['url'])
                             print('\n')
                             continue
                         elif checkVal == 5:
@@ -138,7 +138,7 @@ for filename in listNew:
                         os.system('rm -rf /tmp/123_2')
                         os.system('git clone '+gitUrl+' /tmp/123_2')
                         if not os.path.exists('/tmp/123_2'):
-                            print('null repo '+','+d['CVE_data_meta']['ID']+','+gitUrl)
+                            print('null repo '+','+d['cveMetadata']['cveId']+','+gitUrl)
                             print('\n')
                             continue
                         langs = ghl.linguist('/tmp/123_2')
@@ -146,12 +146,12 @@ for filename in listNew:
                         for ln in langs:
                             if float(ln[1])>30:
                                 langStr +=ln[0]+' '
-                        strStat += langStr+', '+'https://nvd.nist.gov/vuln/detail/'+d['CVE_data_meta']['ID']+', '+gitUrl.split('/')[-2]+'/'+gitUrl.split('/')[-2]
+                        strStat += langStr+', '+'https://nvd.nist.gov/vuln/detail/'+d['cveMetadata']['cveId']+', '+gitUrl.split('/')[-2]+'/'+gitUrl.split('/')[-2]
                         strStat += '\n'
                     elif i['url'].startswith('https://git.'):
                         checkVal = len(i['url'].split('/'))
                         if checkVal<3:
-                            print('not set repo '+','+d['CVE_data_meta']['ID']+','+i['url'])
+                            print('not set repo '+','+d['cveMetadata']['cveId']+','+i['url'])
                             print('\n')
                             continue
                         elif '?p=' in i['url'] and '.git;' in i['url']:
@@ -168,7 +168,7 @@ for filename in listNew:
                                 if not os.path.exists('/tmp/123_3'):
                                     os.system('git clone git://'+gitUrl+'/'+prjUrl+' /tmp/123_3')
                         if not os.path.exists('/tmp/123_3'):
-                            print('null repo '+','+d['CVE_data_meta']['ID']+','+gitUrl)
+                            print('null repo '+','+d['cveMetadata']['cveId']+','+gitUrl)
                             print('\n')
                             continue
                         langs = ghl.linguist('/tmp/123_3')
@@ -176,11 +176,10 @@ for filename in listNew:
                         for ln in langs:
                             if float(ln[1])>30:
                                 langStr +=ln[0]+' '
-                        strStat += langStr+', '+'https://nvd.nist.gov/vuln/detail/'+d['CVE_data_meta']['ID']+', '+gitUrl
+                        strStat += langStr+', '+'https://nvd.nist.gov/vuln/detail/'+d['cveMetadata']['cveId']+', '+gitUrl
                         strStat += '\n'
 
     except:
         print('except'+','+filename)
-        print('stat '+strStat)
         print('\n')
 telegram_bot_sendtext(strStat,bot_token,chats)
