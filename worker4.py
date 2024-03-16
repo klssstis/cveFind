@@ -90,6 +90,8 @@ for i in fileListHash:
 
 strStat = 'CVE language statistical-day \n\n'
 for filename in listNew:
+    if 'deltaLog.json' in filename or 'delta.json' in filename:
+        continue
     try:
         with open(filename) as f:
             d = json.load(f)
@@ -178,6 +180,6 @@ for filename in listNew:
                         strStat += '\n'
 
     except:
-        print('except'+','+filename+','+filename)
+        print('except'+','+filename)
         print('\n')
 telegram_bot_sendtext(strStat,bot_token,chats)
