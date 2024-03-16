@@ -181,5 +181,6 @@ for filename in listNew:
 
     except:
         print('except'+','+filename)
+        print('stat '+strStat)
         print('\n')
 telegram_bot_sendtext(strStat,bot_token,chats)
