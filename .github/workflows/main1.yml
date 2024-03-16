@@ -1,8 +1,8 @@
 name: start worker1, week statistic
-#on: push
-on:
-  schedule:
-    - cron:  '0 1 * * SUN'   
+on: push
+#on:
+#  schedule:
+#    - cron:  '0 1 * * SUN'   
 jobs:
   build:
     runs-on: ubuntu-22.04
