@@ -91,10 +91,10 @@ for i in fileListHash:
         listWeek.append(i)
 dictStat = {}
 for i in listWeek:
-    if i.split('/')[3] in dictStat.keys():
-        dictStat[i.split('/')[3]] += 1
+    if i.split('/')[4] in dictStat.keys():
+        dictStat[i.split('/')[4]] += 1
     else:
-        dictStat[i.split('/')[3]] = 1
+        dictStat[i.split('/')[4]] = 1
 strStat = 'CVE change statistical-week \n\n'
 for key, value in sorted(dictStat.items(), key=lambda x: x[0]):
     strStat += "{} : {}".format(key, value)
