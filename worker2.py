@@ -99,9 +99,9 @@ for i in listNew:
     if 'containers' in dictJsonTmp and 'cna' in dictJsonTmp['containers'] and 'descriptions' in dictJsonTmp['containers']['cna'] and 'value' in dictJsonTmp['containers']['cna']['descriptions'][0]:
         if '** RESERVED ** This candidate has been reserved' in dictJsonTmp['containers']['cna']['descriptions'][0]['value']:
             continue
-         if 'Cross-Site Scripting' in dictJsonTmp['containers']['cna']['descriptions'][0]['value']:
+        if 'Cross-Site Scripting' in dictJsonTmp['containers']['cna']['descriptions'][0]['value']:
             continue
-         if 'In the Linux kernel' in dictJsonTmp['containers']['cna']['descriptions'][0]['value']:
+        if 'In the Linux kernel' in dictJsonTmp['containers']['cna']['descriptions'][0]['value']:
             continue
             
         telegram_bot_sendtext('https://nvd.nist.gov/vuln/detail/'+i.split('/')[-1].split('.json')[0]+'\n\n'+dictJsonTmp['containers']['cna']['descriptions'][0]['value'],bot_token,chats)
